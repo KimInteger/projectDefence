@@ -1,0 +1,19 @@
+{
+  "name": "projectdefence",
+  "version": "1.0.0",
+  "description": "\"디펜스게임을 만들어보자\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KimInteger/projectDefence.git"
+  },
+  "author": "KimInteger",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KimInteger/projectDefence/issues"
+  },
+  "homepage": "https://github.com/KimInteger/projectDefence#readme"
+}

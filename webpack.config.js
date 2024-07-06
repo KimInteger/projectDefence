@@ -1,5 +1,39 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+
+class CustomPlugin {
+  apply(compiler) {
+    compiler.hooks.compilation.tap('CustomPlugin', (compilation) => {
+      HtmlWebpackPlugin.getHooks(compilation).alterAssetTagGroups.tapAsync(
+        'CustomPlugin',
+        (data, cb) => {
+          data.headTags = data.headTags.filter(
+            (tag) => tag.tagName !== 'script',
+          );
+          data.bodyTags = data.bodyTags.filter(
+            (tag) => tag.tagName !== 'script',
+          );
+
+          const scriptTag = {
+            tagName: 'script',
+            voidTag: false,
+            attributes: {
+              type: 'text/javascript',
+            },
+            innerHTML: compilation.assets['bundle.js'].source(),
+          };
+
+          data.bodyTags.push(scriptTag);
+
+          delete compilation.assets['bundle.js'];
+
+          cb(null, data);
+        },
+      );
+    });
+  }
+}
 
 module.exports = {
   entry: './src/app.ts',
@@ -15,7 +49,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: 'babel-loader',
         exclude: /node_modules/,
       },
     ],
@@ -36,5 +70,10 @@ module.exports = {
         minifyURLs: true,
       },
     }),
+    new CustomPlugin(),
   ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
+  },
 };

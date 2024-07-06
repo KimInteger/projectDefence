@@ -15,12 +15,13 @@ export class Monster {
     interval = setInterval((): void => {
       if (movePoint === 0) {
         this.element.style.right = `${movePoint}px`;
+        movePoint++;
       } else if (movePoint > 1000) {
         clearInterval(interval);
         element.removeChild(this.element);
       } else {
-        movePoint++;
         this.element.style.right = `${movePoint}px`;
+        movePoint++;
       }
     }, 16);
   }

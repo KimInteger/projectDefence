@@ -5,6 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+    
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/KimInteger/projectDefence/issues"
   },
-  "homepage": "https://github.com/KimInteger/projectDefence#readme"
+  "homepage": "https://github.com/KimInteger/projectDefence#readme",
+  "devDependencies": {
+    "typescript": "^5.5.3"
+  }
 }

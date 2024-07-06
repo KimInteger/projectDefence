@@ -1,3 +1,4 @@
+import { root } from '../element';
 import { Monster } from './monsterClass';
 
 let waveInterval: NodeJS.Timeout | null = null;
@@ -5,12 +6,9 @@ let waveInterval: NodeJS.Timeout | null = null;
 export function startWave() {
   let count: number = 1;
   waveInterval = setInterval(() => {
-    let monster = new Monster(
-      `monsterNum${count}`,
-      document.getElementById('root') as HTMLDivElement,
-    );
+    let monster = new Monster(`monsterNum${count}`, root);
     count++;
-    monster.move(document.getElementById('root') as HTMLDivElement);
+    monster.move(root);
   }, 1000);
 }
 

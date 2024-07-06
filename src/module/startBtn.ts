@@ -1,4 +1,3 @@
-import insertText from './insertText';
 import makeTag from './makeTag';
 import { startWave } from './startAndEnd';
 

@@ -13,10 +13,7 @@ export class Monster {
     let movePoint: number = 0;
     let interval: NodeJS.Timeout;
     interval = setInterval((): void => {
-      if (movePoint === 0) {
-        this.element.style.right = `${movePoint}px`;
-        movePoint++;
-      } else if (movePoint > 1000) {
+      if (movePoint > 1000) {
         clearInterval(interval);
         element.removeChild(this.element);
       } else {

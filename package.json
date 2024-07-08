@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:babel": "npx babel src --out-dir dist --extensions \".ts\"",
-    "build:webpack": "webpack"
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production"
   },
   "repository": {
     "type": "git",

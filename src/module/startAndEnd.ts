@@ -6,9 +6,14 @@ let waveInterval: NodeJS.Timeout | null = null;
 export function startWave() {
   let count: number = 1;
   waveInterval = setInterval(() => {
-    let monster = new Monster(`monsterNum${count}`, root);
-    count++;
-    monster.move(root);
+    if (count === 41) {
+      clearInterval(waveInterval as NodeJS.Timeout);
+      waveInterval = null;
+    } else {
+      let monster = new Monster(`monsterNum${count}`, root);
+      count++;
+      monster.move(root);
+    }
   }, 1000);
 }
 

@@ -11,5 +11,6 @@ export const allStyle: { [key: string]: Partial<CSSStyleDeclaration> } = {
     height: '400px',
     position: 'absolute',
     border: '1px solid black',
+    zIndex: `0`,
   },
 };

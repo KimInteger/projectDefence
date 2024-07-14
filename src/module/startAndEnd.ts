@@ -10,7 +10,7 @@ export function startWave() {
       clearInterval(waveInterval as NodeJS.Timeout);
       waveInterval = null;
     } else {
-      let monster = new Monster(`monsterNum${count}`, root);
+      let monster = new Monster(`${count}`, root);
       count++;
       monster.move(root);
     }

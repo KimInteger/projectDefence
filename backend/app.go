@@ -6,7 +6,7 @@ import (
 )
 
 func main() {
-	fs := http.FileServer(http.Dir("."))
+	fs := http.FileServer(http.Dir("./dist"))
 
 	numport := 3000
 

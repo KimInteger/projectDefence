@@ -1,6 +1,6 @@
 import { BasicTowerProps } from '../../interface/tower/basicTowerInterfac';
 
-class BasicTower implements BasicTowerProps {
+export class BasicTower implements BasicTowerProps {
   atk: number;
   name: string;
   dps: number;

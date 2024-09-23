@@ -1,6 +1,6 @@
 import { BasicMonsterProp } from '../../interface/monster/basicMonsterInterface';
 
-class BasicMonster implements BasicMonsterProp {
+export class BasicMonster implements BasicMonsterProp {
   hp: number;
   name: string;
 

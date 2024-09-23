@@ -19,6 +19,7 @@ const App: React.FC = () => {
             atk={towerInfo['fire'].atk}
             name={towerInfo['fire'].name}
             dps={towerInfo['fire'].dps}
+            targetClass={waveInfo[1].name}
           />
         </TowerBuildSection>
       </BasicMap>

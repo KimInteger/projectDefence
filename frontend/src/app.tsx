@@ -4,6 +4,8 @@ import { waveInfo } from './static/dataInformation/monster/waveMonsterInformatio
 import BasicMap from './app/map/basicMap';
 import SpawnSection from './app/map/section/spawnSection';
 import TowerBuildSection from './app/map/section/towerSection';
+import BuildTower from './app/buildTower';
+import { towerInfo } from './static/dataInformation/tower/towerInfo';
 
 const App: React.FC = () => {
   return (
@@ -13,7 +15,11 @@ const App: React.FC = () => {
           <SpawnMonster hp={waveInfo[1].hp} name={waveInfo[1].name} />
         </SpawnSection>
         <TowerBuildSection buildSpeed={2000}>
-          <div>Tower</div>
+          <BuildTower
+            atk={towerInfo['fire'].atk}
+            name={towerInfo['fire'].name}
+            dps={towerInfo['fire'].dps}
+          />
         </TowerBuildSection>
       </BasicMap>
     </>

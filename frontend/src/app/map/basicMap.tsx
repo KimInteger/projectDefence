@@ -14,6 +14,7 @@ const BasicMap: React.FC<BasicMapProps> = ({ children }) => {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
+          overflow: 'hidden',
         }}
       >
         {children}

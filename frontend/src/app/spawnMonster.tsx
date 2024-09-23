@@ -9,6 +9,9 @@ const SpawnMonster: React.FC<BasicMonsterProp> = ({ hp, name }) => {
           width: '100px',
           height: '100px',
           border: '1px solid black',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
         }}
       >
         <p>이름 : {name}</p>

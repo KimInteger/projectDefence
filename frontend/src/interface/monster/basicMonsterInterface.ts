@@ -1,4 +1,4 @@
-interface BasicMonster {
+export interface BasicMonsterProp {
   hp: number;
   name: string;
 }

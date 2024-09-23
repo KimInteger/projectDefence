@@ -36,9 +36,7 @@ const SpawnSection: React.FC<SpawnSectionProps> = ({
       }}
     >
       {spawnedChildren.map((child, index) => (
-        <div id={`test${index}`} key={index}>
-          {child}
-        </div>
+        <div key={index}>{child}</div>
       ))}
     </div>
   );

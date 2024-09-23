@@ -35,10 +35,10 @@ class CustomPlugin {
   }
 }
 
-const entryPoint = 'app';
+const entryPoint = './frontend/src/index.tsx';
 
 module.exports = {
-  entry: `./frontend/src/${entryPoint}.ts`,
+  entry: entryPoint,
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -66,7 +66,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './frontend/static/index.html',
+      template: './frontend/src/static/index.html',
       minify: {
         collapseWhitespace: true,
         removeComments: true,

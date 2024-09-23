@@ -1,9 +1,11 @@
 import React from 'react';
+import SpawnMonster from './app/spawnMonster';
+import { waveInfo } from './static/dataInformation/monster/waveMonsterInformation';
 
 const App: React.FC = () => {
   return (
     <>
-      <h1>hellow world</h1>
+      <SpawnMonster hp={waveInfo[1].hp} name={waveInfo[1].name} />
     </>
   );
 };

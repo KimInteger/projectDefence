@@ -1,5 +1,5 @@
 import React from 'react';
-import { BasicMapProps } from '../../../interface/map/basicMapInterface';
+import { BasicMapProps } from '../../interface/map/basicMapInterface';
 
 const BasicMap: React.FC<BasicMapProps> = ({ children }) => {
   return (

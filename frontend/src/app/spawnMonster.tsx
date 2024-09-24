@@ -1,9 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { BasicMonsterProp } from '../interface/monster/basicMonsterInterface';
 import { monsterMoveToSquare } from '../module/lib/monsterMoveToSquare';
+import { allStyle } from '../static/allStyle';
 
 const SpawnMonster: React.FC<BasicMonsterProp> = ({ hp, name }) => {
   const monsterRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // 인라인 스타일 정의
+  const monsterStyle = allStyle.basicMonsterStyle(isHovered);
 
   // 컴포넌트가 렌더링된 후에 몬스터가 자동으로 움직이게 하기
   useEffect(() => {
@@ -16,15 +21,9 @@ const SpawnMonster: React.FC<BasicMonsterProp> = ({ hp, name }) => {
     <div
       ref={monsterRef}
       className={name}
-      style={{
-        position: 'absolute', // 위치 이동을 위해 absolute로 설정
-        width: '100px',
-        height: '100px',
-        border: '1px solid black',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
+      style={monsterStyle}
+      onMouseEnter={() => setIsHovered(true)} // 마우스가 들어올 때 hover 상태 변경
+      onMouseLeave={() => setIsHovered(false)} // 마우스가 나갈 때 hover 상태 변경
     >
       <p>이름 : {name}</p>
       <p>체력 : {hp}</p>

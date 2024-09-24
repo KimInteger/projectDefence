@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { BasicTowerProps } from '../interface/tower/basicTowerInterfac';
+import { allStyle } from '../static/allStyle';
 
 const BuildTower: React.FC<BasicTowerProps> = ({
   atk,
@@ -9,6 +10,8 @@ const BuildTower: React.FC<BasicTowerProps> = ({
 }) => {
   const [isAtk, setIsAtk] = useState<boolean>(false);
   const attackIntervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [isHovered, setIsHovered] = useState(false);
+
   let atkDps: number = 1000 / dps;
 
   useEffect(() => {
@@ -52,16 +55,14 @@ const BuildTower: React.FC<BasicTowerProps> = ({
     setIsAtk(false);
   };
 
+  const towerStyle = allStyle.basicTowerStyle(isHovered);
+
   return (
     <div
       id="tower"
-      style={{
-        width: '200px',
-        height: '200px',
-        border: '1px solid black',
-        backgroundColor: 'black',
-        color: 'white',
-      }}
+      style={towerStyle}
+      onMouseEnter={() => setIsHovered(true)} // 마우스가 들어올 때 hover 상태 변경
+      onMouseLeave={() => setIsHovered(false)} // 마우스가 나갈 때 hover 상태 변경
     >
       <p>이름 : {name}</p>
       <p>공격력 : {atk}</p>

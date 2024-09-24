@@ -11,7 +11,7 @@ export class Monster {
     this.element.textContent = name;
     this.mapWidth = element.clientWidth - 20;
     this.mapHeight = element.clientHeight - 20;
-    assginStyle(this.element, allStyle.monsterStyle);
+    assginStyle(this.element, allStyle.basicMonsterStyle(true));
     element.appendChild(this.element);
   }
   move(element: HTMLElement): void {

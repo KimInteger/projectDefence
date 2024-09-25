@@ -1,1 +1,22 @@
-console.log('자리만 마련해두기!');
+import React, { useState } from 'react';
+import { PlayerControlSectionPros } from '../../../interface/map/playerControlInterface';
+
+const PlayerControlSection: React.FC<PlayerControlSectionPros> = ({
+  children,
+}) => {
+  const [clickedElementInfo, setClickedElementInfo] = useState<string | null>(
+    null,
+  );
+
+  return (
+    <>
+      <div id="playerControlContainer">
+        {/* 클릭된 요소의 정보를 렌더링 */}
+        {clickedElementInfo && <div>{clickedElementInfo}</div>}
+        {children}
+      </div>
+    </>
+  );
+};
+
+export default PlayerControlSection;

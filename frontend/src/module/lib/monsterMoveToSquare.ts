@@ -4,6 +4,7 @@ export function monsterMoveToSquare(monster: HTMLElement): void {
     return;
   }
 
+  const parentElement = monster.parentElement as HTMLElement;
   // 부모의 부모 요소(이하 SpawnSection)을 참조.
   const grandParent = monster.parentElement.parentElement as HTMLElement;
 
@@ -41,7 +42,7 @@ export function monsterMoveToSquare(monster: HTMLElement): void {
     // 원래 위치로 돌아오면 객체 삭제
     if (currentTop === 0 && currentLeft === 0) {
       clearInterval(moveMonster);
-      monster.remove();
+      parentElement.remove();
     }
   }, 16); // 60fps 기준 (16ms 마다 실행)
 }

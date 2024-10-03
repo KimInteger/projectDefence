@@ -25,8 +25,8 @@ const SpawnSection: React.FC<SpawnSectionProps> = ({
   return (
     <div
       style={{
-        width: '1000px',
-        height: '1000px',
+        width: '800px',
+        height: '800px',
         position: 'absolute',
         border: '1px solid black',
         zIndex: 0,

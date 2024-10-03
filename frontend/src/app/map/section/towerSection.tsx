@@ -20,8 +20,8 @@ const TowerBuildSection: React.FC<TowerBuildSeciontProps> = ({
       <div
         style={{
           position: 'absolute',
-          width: '800px',
-          height: '800px',
+          width: '600px',
+          height: '600px',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',

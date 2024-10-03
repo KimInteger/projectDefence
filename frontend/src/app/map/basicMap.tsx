@@ -6,8 +6,8 @@ const BasicMap: React.FC<BasicMapProps> = ({ children }) => {
     <>
       <div
         style={{
-          width: '1000px',
-          height: '1000px',
+          width: '800px',
+          height: '800px',
           position: 'absolute',
           border: '1px solid black',
           zIndex: `0`,
@@ -18,14 +18,6 @@ const BasicMap: React.FC<BasicMapProps> = ({ children }) => {
         }}
       >
         {children}
-        <p
-          style={{
-            position: 'absolute',
-            color: 'rgba(0, 0, 0, 0.3)',
-          }}
-        >
-          테스트용 기초 맵입니다.
-        </p>
       </div>
     </>
   );

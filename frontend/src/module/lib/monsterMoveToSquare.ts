@@ -38,11 +38,5 @@ export function monsterMoveToSquare(monster: HTMLElement): void {
     // 새로운 위치로 몬스터 이동
     monster.style.top = `${currentTop}px`;
     monster.style.left = `${currentLeft}px`;
-
-    // 원래 위치로 돌아오면 객체 삭제
-    if (currentTop === 0 && currentLeft === 0) {
-      clearInterval(moveMonster);
-      parentElement.remove();
-    }
   }, 16); // 60fps 기준 (16ms 마다 실행)
 }

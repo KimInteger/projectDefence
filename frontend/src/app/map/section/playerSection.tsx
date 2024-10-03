@@ -3,11 +3,8 @@ import { PlayerControlSectionPros } from '../../../interface/map/playerControlIn
 
 const PlayerControlSection: React.FC<PlayerControlSectionPros> = ({
   children,
+  clickedElementInfo,
 }) => {
-  const [clickedElementInfo, setClickedElementInfo] = useState<string | null>(
-    null,
-  );
-
   return (
     <>
       <div id="playerControlContainer">

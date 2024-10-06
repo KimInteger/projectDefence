@@ -1,9 +1,7 @@
 import React, { useEffect, useState, forwardRef } from 'react';
 import { SpawnSectionProps } from '../../../interface/map/monsterSpawnInterface';
 
-type PropsWithPause = SpawnSectionProps & { isPaused: boolean }; // isPaused prop 추가
-
-const SpawnSection = forwardRef<HTMLDivElement, PropsWithPause>(
+const SpawnSection = forwardRef<HTMLDivElement, SpawnSectionProps>(
   ({ children, spawnCount, spawnSpeed, isPaused }, ref) => {
     const [count, setCount] = useState<number>(0);
     const [spawnedChildren, setSpawnedChildren] = useState<React.ReactNode[]>(
@@ -11,7 +9,7 @@ const SpawnSection = forwardRef<HTMLDivElement, PropsWithPause>(
     );
 
     useEffect(() => {
-      if (isPaused) return; // 일시 정지 중이면 아무 동작도 하지 않음
+      if (isPaused) return;
 
       const intervalId = setInterval(() => {
         if (count < spawnCount) {
@@ -22,8 +20,8 @@ const SpawnSection = forwardRef<HTMLDivElement, PropsWithPause>(
         }
       }, spawnSpeed);
 
-      return () => clearInterval(intervalId); // 컴포넌트 언마운트 시 interval 정리
-    }, [count, spawnSpeed, children, isPaused]); // isPaused가 변경되면 effect 재실행
+      return () => clearInterval(intervalId);
+    }, [count, spawnSpeed, children, isPaused]);
 
     return (
       <div

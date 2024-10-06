@@ -7,6 +7,7 @@ import TowerBuildSection from './app/map/section/towerSection';
 import BuildTower from './app/buildTower';
 import { towerInfo } from './static/dataInformation/tower/towerInfo';
 import PlayerControlSection from './app/map/section/playerSection';
+import DefeatScreen from './app/condition/defeatCondition';
 
 const App: React.FC = () => {
   const [clickedElementInfo, setClickedElementInfo] = useState<string | null>(
@@ -67,32 +68,7 @@ const App: React.FC = () => {
   return (
     <>
       {isDefeated ? (
-        <div
-          style={{
-            width: '100vw',
-            height: '100vh',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: 'rgba(0, 0, 0, 0.8)',
-            color: 'white',
-            fontSize: '2rem',
-          }}
-        >
-          <p>패배하였습니다!</p>
-          <button
-            onClick={handleRestart}
-            style={{
-              marginTop: '20px',
-              padding: '10px 20px',
-              fontSize: '1.5rem',
-              cursor: 'pointer',
-            }}
-          >
-            다시하기
-          </button>
-        </div>
+        <DefeatScreen onclick={handleRestart} />
       ) : (
         <>
           <div
@@ -132,7 +108,7 @@ const App: React.FC = () => {
             }}
           >
             <PlayerControlSection clickedElementInfo={clickedElementInfo}>
-              <p>SpawnSection 자식 수: {spawnSectionChildCount}</p>
+              <p>현재 몬스터 수(15초과시 패배) : {spawnSectionChildCount}</p>
             </PlayerControlSection>
           </div>
         </>

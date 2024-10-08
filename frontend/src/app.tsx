@@ -17,6 +17,7 @@ const App: React.FC = () => {
     useState<number>(0);
   const [isPaused, setIsPaused] = useState<boolean>(false);
   const [isDefeated, setIsDefeated] = useState<boolean>(false);
+  const [isStarted, setIsStarted] = useState<boolean>(false);
 
   const spawnSectionRef = useRef<HTMLDivElement | null>(null);
 
@@ -50,7 +51,7 @@ const App: React.FC = () => {
     return () => {
       observer.disconnect();
     };
-  }, []);
+  }, [isStarted]);
 
   // 자식 수가 15를 넘으면 일시 정지 및 패배 상태로 설정
   useEffect(() => {
@@ -65,9 +66,26 @@ const App: React.FC = () => {
     window.location.reload();
   };
 
+  const handleStart = () => {
+    setIsStarted(true);
+  };
+
   return (
     <>
-      {isDefeated ? (
+      {!isStarted ? (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '100vh',
+          }}
+        >
+          <h1>김정수</h1>
+          <button onClick={handleStart}>시작</button>
+        </div>
+      ) : isDefeated ? (
         <DefeatScreen onclick={handleRestart} />
       ) : (
         <>
